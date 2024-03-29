@@ -28,34 +28,6 @@ function resizeGrid(newSize) {
   if (newSize > 100 || isNaN(newSize)) {
     return null;
   }
-  console.log("hola");
-
-  const oldBoard = document.querySelector("#board");
-  container.removeChild(oldBoard);
-
-  createGrid(newSize);
-}
-
-function removeCellMode() {
-  const cells = document.querySelectorAll(".cell");
-
-  cells.forEach((cell) => {
-    // cellClone = cell.cloneNode(true);
-    // cell.parentNode.replaceChild(cellClone, cell);
-    cell.replaceWith(cell.cloneNode(true));
-  });
-}
-
-function blackenCell(cellNode) {
-  cellNode.style.backgroundColor = "black";
-  cellNode.style.border = "1px white solid";
-}
-
-function resizeGrid(newSize) {
-  newSize = parseInt(newSize);
-  if (newSize > 100 || isNaN(newSize)) {
-    return null;
-  }
 
   const oldBoard = document.querySelector("#board");
   container.removeChild(oldBoard);
