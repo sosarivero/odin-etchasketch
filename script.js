@@ -72,6 +72,7 @@ function darkenCell(cellNode) {
 
 function randomlyColorCell(cellNode) {
   cellNode.style.backgroundColor = getRandomRGB();
+  cellNode.style.opacity = 1.0;
 }
 
 function getRandomRGB() {
