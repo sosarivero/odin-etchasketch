@@ -11,6 +11,10 @@ function createGrid(sideSize) {
     for (let j = 0; j < sideSize; j++) {
       const cellDiv = document.createElement("div");
       cellDiv.classList.add("cell");
+
+      // Adds functionality to the cell
+      cellDiv.addEventListener("mouseover", () => paintCell(cellDiv));
+
       // Appends cell to the row
       rowDiv.appendChild(cellDiv);
     }
@@ -37,11 +41,11 @@ function resizeGrid(newSize) {
 
 createGrid(16);
 
-const cells = document.querySelectorAll(".cell");
+// const cells = document.querySelectorAll(".cell");
 
-cells.forEach((cell) => {
-  cell.addEventListener("mouseover", () => paintCell(cell));
-});
+// cells.forEach((cell) => {
+//   cell.addEventListener("mouseover", () => paintCell(cell));
+// });
 
 const resizeButton = document.querySelector("#size-changer");
 
