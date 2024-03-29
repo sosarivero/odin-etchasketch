@@ -1,4 +1,4 @@
-const container = document.querySelector("#container");
+const CONTAINER = document.querySelector("#container");
 
 function createGrid(sideSize) {
   const board = document.createElement("div");
@@ -20,7 +20,7 @@ function createGrid(sideSize) {
     }
     board.appendChild(rowDiv);
   }
-  container.appendChild(board);
+  CONTAINER.appendChild(board);
 }
 
 function resizeGrid(newSize) {
@@ -30,7 +30,7 @@ function resizeGrid(newSize) {
   }
 
   const oldBoard = document.querySelector("#board");
-  container.removeChild(oldBoard);
+  CONTAINER.removeChild(oldBoard);
 
   createGrid(newSize);
 }
@@ -55,6 +55,21 @@ function blackenCell(cellNode) {
   cellNode.style.border = "1px white solid";
 }
 
+// This works in a bit of a hacky way.
+// Basically the cells by default have a white background,
+// and the container that holds everything has a black background.
+// So we can change the opacity value of each cell to give illusion of darkening.
+function darkenCell(cellNode) {
+  // By default the DOM method of style.opacity has a value of '', even when opacity is set in stylesheet.
+  if (cellNode.style.opacity === "") {
+    cellNode.style.opacity = 0.9;
+  } else if (cellNode.style.opacity <= 0.0) {
+    return null;
+  } else {
+    cellNode.style.opacity -= 0.1;
+  }
+}
+
 function randomlyColorCell(cellNode) {
   cellNode.style.backgroundColor = getRandomRGB();
 }
@@ -69,17 +84,21 @@ function getRandomRGB() {
 
 // Adds event listeners to buttons
 const resizeButton = document.querySelector("#size-changer");
-
 resizeButton.addEventListener("click", () => {
   let userSize = window.prompt("Choose a new size");
   resizeGrid(userSize);
 });
 
 const rainbowButton = document.querySelector("#rainbow");
-
 rainbowButton.addEventListener("click", () => {
   removeCellsMode();
   setCellListener(randomlyColorCell);
+});
+
+const darkenButton = document.querySelector("#darken");
+darkenButton.addEventListener("click", () => {
+  removeCellsMode();
+  setCellListener(darkenCell);
 });
 
 // Creates a default 16x16 grid
