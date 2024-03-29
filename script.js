@@ -1,4 +1,4 @@
-const CONTAINER = document.querySelector("#container");
+const container = document.querySelector("#container");
 
 function createGrid(sideSize) {
   const board = document.createElement("div");
@@ -20,7 +20,7 @@ function createGrid(sideSize) {
     }
     board.appendChild(rowDiv);
   }
-  CONTAINER.appendChild(board);
+  container.appendChild(board);
 }
 
 function blackenCell(cellNode) {
@@ -29,12 +29,13 @@ function blackenCell(cellNode) {
 }
 
 function resizeGrid(newSize) {
-  if (newSize > 100 || !newSize.length) {
+  newSize = parseInt(newSize);
+  if (newSize > 100 || isNaN(newSize)) {
     return null;
   }
 
   const oldBoard = document.querySelector("#board");
-  CONTAINER.removeChild(oldBoard);
+  container.removeChild(oldBoard);
 
   createGrid(newSize);
 }
@@ -51,5 +52,5 @@ const resizeButton = document.querySelector("#size-changer");
 
 resizeButton.addEventListener("click", () => {
   let userSize = window.prompt("Choose a new size");
-  resizeGrid(parseInt(userSize));
+  resizeGrid(userSize);
 });
