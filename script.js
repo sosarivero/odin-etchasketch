@@ -29,7 +29,7 @@ function paintCell(cellNode) {
 }
 
 function resizeGrid(newSize) {
-  if (newSize > 100) {
+  if (newSize > 100 || !newSize.length) {
     return null;
   }
 
