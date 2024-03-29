@@ -15,4 +15,15 @@ function createGrid(sideSize) {
   }
 }
 
+function paintCell(cellNode) {
+  cellNode.style.backgroundColor = "black";
+  cellNode.style.border = "1px white solid";
+}
+
 createGrid(16);
+
+const cells = document.querySelectorAll(".cell");
+
+cells.forEach((cell) => {
+  cell.addEventListener("mouseover", () => paintCell(cell));
+});
