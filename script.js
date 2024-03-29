@@ -97,9 +97,6 @@ resizeButton.addEventListener("click", () => {
   let userSize = window.prompt("Choose a new size");
   resizeGrid(userSize);
 });
-  resizeGrid(parseInt(userSize));
-  resizeGrid(16);
-});
 
 const rainbowButton = document.querySelector("#rainbow");
 
