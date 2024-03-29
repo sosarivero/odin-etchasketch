@@ -52,7 +52,7 @@ function setCellListener(callbackFn) {
 
 function blackenCell(cellNode) {
   cellNode.style.backgroundColor = "black";
-  cellNode.style.border = "1px white solid";
+//   cellNode.style.border = "1px white solid";
 }
 
 // This works in a bit of a hacky way.
