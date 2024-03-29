@@ -52,8 +52,8 @@ function blackenCell(cellNode) {
 }
 
 function resizeGrid(newSize) {
-    newSize = parseInt(newSize);
-    if (newSize > 100 || isNaN(newSize)) {
+  newSize = parseInt(newSize);
+  if (newSize > 100 || isNaN(newSize)) {
     return null;
   }
 
@@ -63,13 +63,18 @@ function resizeGrid(newSize) {
   createGrid(newSize);
 }
 
-function removeCellMode() {
+function removeCellsMode() {
   const cells = document.querySelectorAll(".cell");
 
   cells.forEach((cell) => {
-    // cellClone = cell.cloneNode(true);
-    // cell.parentNode.replaceChild(cellClone, cell);
     cell.replaceWith(cell.cloneNode(true));
+  });
+}
+
+function setCellListener(callbackFn) {
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.addEventListener("mouseover", () => callbackFn(cell));
   });
 }
 
@@ -100,7 +105,10 @@ resizeButton.addEventListener("click", () => {
 
 const rainbowButton = document.querySelector("#rainbow");
 
-// rainbowButton.addEventListener("click", () => {});
+rainbowButton.addEventListener("click", () => {
+  removeCellsMode();
+  setCellListener(randomlyColorCell);
+});
 
 // Creates a default 16x16 grid
 createGrid(16);
