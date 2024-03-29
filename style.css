@@ -52,3 +52,13 @@ ul {
     left: 960px;
     margin: 16px auto;
 }
+
+#rainbow {
+    /* Source: https://devdevout.com/css/css-gradient-buttons */
+    background-image: linear-gradient(to right, rgb(1 134 218), rgb(182 49 167));
+}
+
+#darken {
+    /* Done by myself using the previous one as a guide :) */
+    background-image: linear-gradient(to right, rgb(0 0 0), rgb(185 185 185));
+}
