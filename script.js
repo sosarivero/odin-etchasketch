@@ -13,7 +13,7 @@ function createGrid(sideSize) {
       cellDiv.classList.add("cell");
 
       // Adds functionality to the cell
-      cellDiv.addEventListener("mouseover", () => paintCell(cellDiv));
+      cellDiv.addEventListener("mouseover", () => blackenCell(cellDiv));
 
       // Appends cell to the row
       rowDiv.appendChild(cellDiv);
@@ -23,7 +23,7 @@ function createGrid(sideSize) {
   CONTAINER.appendChild(board);
 }
 
-function paintCell(cellNode) {
+function blackenCell(cellNode) {
   cellNode.style.backgroundColor = "black";
   cellNode.style.border = "1px white solid";
 }

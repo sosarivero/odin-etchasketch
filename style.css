@@ -27,14 +27,23 @@
     border: 1px black solid;
 }
 
-#size-changer {
+button {
     background-color: #0f766e;
     color: white;
     border: none;
     border-radius: 4px;
+    padding: 8px;
+    margin: 12px;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
     position: absolute;
     top: 0;
     left: 960px;
-    padding: 8px;
-    margin: 16px;
+    margin: 16px auto;
 }
